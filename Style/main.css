@@ -22,7 +22,7 @@ body
 #headerLogo
 {
 	position: relative;
-	top: 25px;
+	top: 0;
 	left: 28%;
 }
 
@@ -41,21 +41,52 @@ body
 	width: 50%;
 	min-height: 100vh;
 
-	margin: 0 auto 0 auto;
+	margin: 20px auto 0 auto;
 
-	background-color: #FFF;
 	box-shadow: 0 0 32px 0 #CCC;
 	z-index: -1;
 }
 
-#footer
+#content
 {
-	position: absolute;
-	left: 0;
-	bottom: 0;
+	background-color: #FFF;
+	background-image: url("UI/PlaneStencil.png");
+	background-position: top right;
+	background-repeat: no-repeat;
+
+	color: #777;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#content h1
+{
+	margin: 0;
+	padding: 20px;
+
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+#content p
+{
+	margin: 0;
+	padding: 20px;
+	width: 65%;
+
+	text-align: justify;
+}
+
+.fullBodyPromoImage
+{
 	width: 100%;
 
+	margin: 20px 0 20px 0;
+}
+
+#footer
+{
+	width: 100%;
 	height: 250px;
+	margin: 0;
 
 	background-color: #F9F9F9;
 }
