@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+body
+{
+	margin: 0;
+	padding: 0;
+
+	background-color: #EEE;
+}
+
+#headBar
+{
+	width: 100%;
+	height: 126px;
+
+	background-color: #101b28;
+	background-image: url("UI/BlueRadialHeaderBG.png");
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+#headerLogo
+{
+	position: relative;
+	top: 25px;
+	left: 28%;
+}
+
+#navBar
+{
+	width: 100%;
+	height: 27px;
+
+	background-image: url("UI/Navbar.png");
+	background-repeat: repeat-x;
+}
+
+#bodyWrapper
+{
+	position: relative;
+	width: 50%;
+	min-height: 100vh;
+
+	margin: 0 auto 0 auto;
+
+	background-color: #FFF;
+	box-shadow: 0 0 32px 0 #CCC;
+	z-index: -1;
+}
+
+#footer
+{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+
+	height: 250px;
+
+	background-color: #F9F9F9;
+}
