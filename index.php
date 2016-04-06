@@ -5,6 +5,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="Style/main.css"/>
+    <link rel="stylesheet" type="text/css" href="Style/mobile.css" media="only screen and (max-device-width: 480px)" />
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
 
     <title><?php echo(Constants::$SITE_TITLE); ?></title>

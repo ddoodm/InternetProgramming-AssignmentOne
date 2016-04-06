@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+/*==== Style overrides for mobile devices ====*/
+
+#bodyWrapper
+{
+	width: 100%;
+	box-shadow: none;
+}
