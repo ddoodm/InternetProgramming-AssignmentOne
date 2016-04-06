@@ -13,7 +13,7 @@
   <body>
   	<!-- Head Spacer -->
   	<div id="headBar">
-  		<img id="headerLogo" src="Style/UI/ITLogo.png" />
+  		<img id="headerLogo" src="Style/UI/ITLogo.png" alt="<?php echo(Constants::$SITE_TITLE); ?>" />
   	</div>
 
   	<!-- Navigation Bar -->
@@ -25,14 +25,14 @@
         <h2>Start planning your next adventure today, with Interprog Travel!</h2>
 
         <!-- Promo Image -->
-        <img class="fullBodyPromoImage" src="Images/PromoPic_00.jpg">
+        <img class="fullBodyPromoImage" src="Images/PromoPic_00.jpg" alt="Promotion Image">
 
         <div class="infoBox">
           <h3>
             Book your flight now for the best deals !<br />
             Don't wait !
           </h3>
-          <button class="lumpyButton">
+          <button class="lumpyButton" onclick="location.href='#';">
             Book Now
           </button>
         </div>
@@ -46,7 +46,14 @@
       </div>
 
   		<!-- Footer -->
-  		<div id="footer">&nbsp;</div>
+  		<div id="footer">
+        <div id="footerContent">
+          <a>
+            <img src="Images/HTML5_Logo_64.png" alt="W3C Valid HTML 5" />
+            <p>W3C Valid HTML5 Markup</p>
+          </a>
+        </div>
+      </div>
   	</div>
 
   </body>
