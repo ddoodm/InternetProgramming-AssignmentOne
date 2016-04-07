@@ -37,6 +37,44 @@ body
 	background-repeat: repeat-x;
 }
 
+#navBarWrapper
+{
+	padding: 0 25%;
+}
+
+#navBar a
+{
+	display: table-cell;
+	padding: 0;
+	padding-top:3px;
+	margin: 0;
+	width: 138px;
+	height: 24px;
+
+	background-image: url("UI/NavbarButton.png");
+	background-position: top;
+
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+
+	text-shadow: 0px 1px 1px #F0F0F0;
+	color: #888;
+}
+
+#navBar a:hover
+{
+	background-position: center;
+	text-shadow: 0px 1px 1px #444;
+	color: #DDD;
+}
+
+#navBar a:active
+{
+	background-position: bottom;
+}
+
 /* ===== Body ===== */
 #bodyWrapper
 {
@@ -46,11 +84,14 @@ body
 
 	margin: 20px auto 0 auto;
 
+	background-color: #F9F9F9;
 	box-shadow: 0 0 32px 0 #CCC;
 }
 
 #content
 {
+	min-height: 80vh;
+
 	background-color: #FFF;
 	background-image: url("UI/PlaneStencil.png");
 	background-position: top right;
