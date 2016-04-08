@@ -115,10 +115,15 @@ h1, h2
 
 #content h2
 {
-	padding: 20px 20%;
+	padding: 20px 10%;
 	font-size: 2em;
-	text-align: center;
 	color: #AAA;
+}
+
+.centerHeading
+{
+	padding: 20px 20% !important;
+	text-align: center;
 }
 
 #content p
@@ -130,15 +135,10 @@ h1, h2
 	text-align: justify;
 }
 
-.rightJustify
-{
-	direction: rtl;
-	text-align: justify;
-}
-
 .fullBodyPromoImage
 {
 	width: 100%;
+	margin: 0;
 }
 
 .infoBox
@@ -158,7 +158,6 @@ h1, h2
 	color: #999;
 	margin: 0;
 	padding: 20px;
-	padding-bottom: 0;
 }
 
 .lumpyButton

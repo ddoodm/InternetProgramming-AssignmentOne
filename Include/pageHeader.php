@@ -19,7 +19,8 @@
   	<div id="navBar">
       <div id="navBarWrapper">
         <a href="index.php">Home</a>
-        <a href="#">Search</a>
+        <a href="bookings.php">Your Bookings</a>
+        <a href="#">Find Flights</a>
         <a href="contact.php">Contact</a>
       </div>
     </div>
