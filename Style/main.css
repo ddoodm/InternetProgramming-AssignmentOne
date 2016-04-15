@@ -184,14 +184,15 @@ h1, h2
 	/* 3D Extrusion */
 	text-shadow: 0px 1px 0px #888, 0px 2px 0px #777, 0px 3px 0px #666, 0px 4px 0px #555, 0px 5px 0px #444;
 
-	box-shadow: 5px 5px 10px 0 #CCC;
+	box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.2);
 
 	cursor: pointer;
 }
 
 .lumpyButton:hover
 {
-	color: #EFEFEF;
+	background-position: bottom;
+	background-size: 2px;
 }
 
 /* ===== Contact Form ===== */
@@ -302,4 +303,10 @@ h1, h2
 .hidden
 {
 	display: none;
+}
+
+.disabledInput
+{
+	background: #AAA !important;
+	cursor: default;
 }

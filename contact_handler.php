@@ -1,8 +1,10 @@
 <?php
 
 const RECEIVER_ADDRESS = "deinyon.davies@student.uts.edu.au";
-const MAX_NAME_LENGTH = 32;
+const MAX_NAME_LENGTH = 50;
+const MAX_SUBJECT_LENGTH = 50;
 const MIN_MESSAGE_LENGTH = 10;
+const MAX_MESSAGE_LENGTH = 2500;
 
 function exitWithResponse($response)
 {
@@ -43,6 +45,14 @@ if(strlen($name) > MAX_NAME_LENGTH)
 }
 
 // Validate email
+if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+{
+	$response['email'] =
+		"Please supply a valid E-Mail address.";
+	$formValid = false;
+}
+
+// No E-Mail address supplied
 if(strlen($email) < 1)
 {
 	$response['email'] =
@@ -58,11 +68,27 @@ if(strlen($subject) < 1)
 	$formValid = false;
 }
 
+// Subject too long
+if(strlen($subject) > MAX_SUBJECT_LENGTH)
+{
+	$response['subject'] =
+		"Please provide a subject less than ". MAX_SUBJECT_LENGTH ." characters long.";
+	$formValid = false;
+}
+
 // Validate message
 if(strlen($message) < MIN_MESSAGE_LENGTH)
 {
 	$response['message'] =
-		"Please write a meaningful message.<br/>(More than ". MIN_MESSAGE_LENGTH ." characters, please.";
+		"Please write a meaningful message.<br/>(More than ". MIN_MESSAGE_LENGTH ." characters, please)";
+	$formValid = false;
+}
+
+// Message too long
+if(strlen($message) > MAX_MESSAGE_LENGTH)
+{
+	$response['message'] =
+		"Please constrain your message to ". MAX_MESSAGE_LENGTH ." characters.";
 	$formValid = false;
 }
 
@@ -100,7 +126,7 @@ $messageFormat =
 // Format the message
 $mailMessage = sprintf(
 	$messageFormat,
-	$name, $email, $email, $message);
+	$name===""? "an Anonymous Mailer" : $name, $email, $email, $message);
 
 // Deliver the E-Mail
 $deliverySuccess = mail(RECEIVER_ADDRESS, $subject, $mailMessage, $mailHeaders);
