@@ -1,5 +1,7 @@
 <?php
 
+require_once("Include/stdinc.php");
+
 const RECEIVER_ADDRESS = "deinyon.davies@student.uts.edu.au";
 const MAX_NAME_LENGTH = 50;
 const MAX_SUBJECT_LENGTH = 50;
@@ -9,7 +11,8 @@ const MAX_MESSAGE_LENGTH = 2500;
 function exitWithResponse($response)
 {
 	header('Content-Type: application/json');
-	echo json_encode($response);
+	//echo json_encode($response);
+	echo DJsonHelper::json_encode($response);
 	die();
 }
 
