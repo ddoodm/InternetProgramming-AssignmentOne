@@ -225,7 +225,7 @@ h1, h2
 	width: 100%;
 }
 
-#contactForm input, #contactForm textarea
+form input, form textarea
 {
 	border: none;
 	margin: 10px;

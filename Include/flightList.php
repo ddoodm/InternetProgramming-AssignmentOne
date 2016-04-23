@@ -15,15 +15,15 @@
 			$filters = array();
 			if(isset($from_city)) 	array_push($filters, "from_city = '$from_city'");
 			if(isset($to_city)) 	array_push($filters, "to_city = '$to_city'");
-			if(isset($min_price)) 	array_push($filters, "price > '$min_price'");
-			if(isset($max_price)) 	array_push($filters, "price < '$max_price'");
+			if(isset($min_price)) 	array_push($filters, "price >= '$min_price'");
+			if(isset($max_price)) 	array_push($filters, "price <= '$max_price'");
 
 			// Base query (no filters)
-			$queryFormat = "SELECT * FROM flights WHERE 1=1 %s";
+			$queryFormat = "SELECT * FROM flights %s";
 
 			// Insert filters into query string, if at least one filter exists
 			$query = sprintf($queryFormat,
-				(sizeof($filters) > 0)? "AND " . implode(' AND ', $filters) : "");
+				(sizeof($filters) > 0)? "WHERE " . implode(' AND ', $filters) : "");
 
 			// Make the query
 			$this->sqli_flights = $sqli->query($query);

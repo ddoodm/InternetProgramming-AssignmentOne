@@ -15,21 +15,21 @@
   require_once("Include/flightList.php");
 
   $flightList = new FlightList(
-  	$sqli, $_GET['from_city']?:null, $_GET['to_city']?:null, $_GET['min_price']?:null, $_GET['max_price']?:null);
+  	$sqli, @$_GET['from_city']?:null, @$_GET['to_city']?:null, @$_GET['min_price']?:null, @$_GET['max_price']?:null);
 ?>
 
-<div style="padding-top: 100px">
-	<div class="fullWidthContainer">
-		<form action="search_flights.php" method="GET">
-			<b>City</b> <input type="text" name="from_city"> to
-			<input type="text" name="to_city"> <br />
+<h2>Search Our Flights</h2>
 
-			<b>Price</b> <input type="text" name="min_price"> to
-			<input type="text" name="max_price"> <br />
+<div class="fullWidthContainer">
+	<form action="search_flights.php" method="GET">
+		<b>City</b> <input type="text" name="from_city" placeholder="Anywhere"> to
+		<input type="text" name="to_city" placeholder="Anywhere"> <br />
 
-			<input type="submit" value="Search">
-		</form>
-	</div>
+		<b>Price</b> <input type="text" name="min_price" placeholder="$0.00"> to
+		<input type="text" name="max_price" placeholder="$1,000.00 >"> <br />
+
+		<input type="submit" value="Search">
+	</form>
 </div>
 
 <ul>
