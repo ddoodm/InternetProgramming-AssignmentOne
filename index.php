@@ -21,7 +21,7 @@
     Book your flight now for the best deals !<br />
     Don't wait !
   </h3>
-  <button class="lumpyButton" style="margin-top:0;" onclick="location.href='#';">
+  <button class="lumpyButton" style="margin-top:0;" onclick="location.href='search_flights.php';">
     Book Now
   </button>
 </div>

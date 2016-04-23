@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Defines application-wide constants
 */

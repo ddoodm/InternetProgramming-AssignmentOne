@@ -142,10 +142,16 @@ h1, h2
 	text-align: justify;
 }
 
-.fullBodyPromoImage
+.fullBodyPromoImage .fullWidthContainer
 {
 	width: 100%;
 	margin: 0;
+}
+
+.fullWidthContainer
+{
+	padding: 60px;
+	background-color: #F9F9F9;
 }
 
 .infoBox
