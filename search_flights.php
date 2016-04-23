@@ -13,6 +13,7 @@
 
   // Flight listing object
   require_once("Include/flightList.php");
+
   $flightList = new FlightList(
   	$sqli, $_GET['from_city']?:null, $_GET['to_city']?:null, $_GET['min_price']?:null, $_GET['max_price']?:null);
 ?>

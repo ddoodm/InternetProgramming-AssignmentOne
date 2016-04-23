@@ -142,7 +142,7 @@ h1, h2
 	text-align: justify;
 }
 
-.fullBodyPromoImage .fullWidthContainer
+.fullBodyPromoImage
 {
 	width: 100%;
 	margin: 0;
@@ -150,6 +150,7 @@ h1, h2
 
 .fullWidthContainer
 {
+	margin: 0;
 	padding: 60px;
 	background-color: #F9F9F9;
 }
