@@ -32,11 +32,9 @@
 	</form>
 </div>
 
-<ul>
 <?php
 	$flightList->PrintTable();
 ?>
-</ul>
 
 <?php
   // Common footer content
