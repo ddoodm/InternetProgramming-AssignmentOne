@@ -286,11 +286,15 @@ form input, form textarea
 table
 {
 	margin: 25px auto;
+
+	box-shadow: 0 0 20px #EEE;
 }
 
 table td, table th
 {
-	padding: 10px 60px;
+	width: 150px;
+	padding: 10px 10px;
+	text-align: center;
 }
 
 tbody>tr:nth-child(2n+1)

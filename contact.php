@@ -11,7 +11,7 @@
 
 <h2>Contact Us</h2>
 
-<form id="contactForm" action="contact_handler.php" method="post">
+<form id="contactForm" action="Services/contact_handler.php" method="post">
 	<label>CONTACT US</label>
 	<p>Have a question or two about our flights? Please, contact us via this form; we'll be happy to read from you.</p>
 
