@@ -7,7 +7,7 @@
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
 
     <!-- JQuery Library -->
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="Scripts/jquery-1.12.3.min.js"></script>
 
     <title><?php echo($pageTitle); ?></title>
   </head>

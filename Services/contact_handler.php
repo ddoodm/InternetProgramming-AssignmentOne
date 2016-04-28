@@ -1,6 +1,6 @@
 <?php
 
-require_once("Include/stdinc.php");
+require_once("../Include/stdinc.php");
 
 const RECEIVER_ADDRESS = "deinyon.davies@student.uts.edu.au";
 const MAX_NAME_LENGTH = 50;

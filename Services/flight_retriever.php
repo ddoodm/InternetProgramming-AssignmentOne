@@ -53,6 +53,7 @@
 		{
 			$flight = $doc->createElement("flight");
 
+			$flight->setAttribute("route_no", $row->route_no);
 			$flight->setAttribute("from_city", $row->from_city);
 			$flight->setAttribute("to_city", $row->to_city);
 			$flight->setAttribute("price", $row->price);

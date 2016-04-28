@@ -174,7 +174,7 @@ h1, h2
 	padding: 20px;
 }
 
-.lumpyButton
+.lumpyButton, .bookButton
 {
 	height: 40px;
 	padding: 0 50px;
@@ -200,6 +200,22 @@ h1, h2
 {
 	background-position: bottom;
 	background-size: 2px;
+}
+
+.bookButton
+{
+	display: block;
+	margin: 0 auto;
+	padding: 5px;
+	height: auto;
+	width: 50px;
+	text-shadow: none;
+	text-decoration: none;
+}
+
+.bookButton:hover
+{
+	color: #DDD;
 }
 
 /* ===== Contact Form ===== */
@@ -285,21 +301,27 @@ form input, form textarea
 /* ===== Table ===== */
 table
 {
-	margin: 25px auto;
+	margin: 0 auto;
+	width: 100%;
 
 	box-shadow: 0 0 20px #EEE;
 }
 
 table td, table th
 {
-	width: 150px;
 	padding: 10px 10px;
 	text-align: center;
 }
 
+table th
+{
+	background-color: #777;
+	color: #FFF;
+}
+
 tbody>tr:nth-child(2n+1)
 {
-	background-color: #F6F6F6;
+	background-color: #F8F8F8;
 }
 
 /* ===== Footer ===== */

@@ -26,13 +26,16 @@
 	</form>
 </div>
 
-<table id="flightTable">
+<table id="flightTable" cellspacing="0" cellpadding="0">
   <thead>
-    <tr><th>From</th> <th>To</th> <th>Price</th> <th>Book</th></tr>
+    <tr>
+      <th style="width: 30%">From</th>
+      <th style="width: 30%">To</th>
+      <th style="width: 20%">Price</th>
+      <th style="width: 20%">Book</th>
+    </tr>
   </thead>
-  <tbody>
-
-  </tbody>
+  <tbody> </tbody>
 </table>
 
 <script type="text/javascript">
@@ -49,8 +52,16 @@ $("#flightSearchForm").submit(function(event)
   // POST request with form data
   var request = $.post(url, $(this).serialize());
 
-  request.done(function(response)
+  // Start table animation
+  $("#flightTable").animate({opacity: 0.0}, 250, function()
   {
+    // On animation complete, make the query
+    request.done(PopulateTableWithAJAXResponse);
+  });
+});
+
+function PopulateTableWithAJAXResponse(response)
+{
     // Clear flight table
     $("#flightTable > tbody").empty();
 
@@ -59,15 +70,34 @@ $("#flightSearchForm").submit(function(event)
 
     $(flightRows).each(function()
     {
-        var from_city = $(this).attr("from_city");
-        var to_city = $(this).attr("to_city");
-        var price = $(this).attr("price");
+        var from_city = HtmlTableCol($(this).attr("from_city"));
+        var to_city = HtmlTableCol($(this).attr("to_city"));
+        var price = HtmlTableCol($(this).attr("price"));
+        var bookButton = HtmlTableCol(
+          GenerateBookButton($(this).attr("route_no")));
 
-        $('#flightTable > tbody:last-child')
-          .append('<tr><td>'+from_city+'</td><td>'+to_city+'</td><td>'+price+'</td><td>Book</td></tr>');
+        $('#flightTable > tbody:last-child').append(
+          HtmlTableRow(from_city + to_city + price + bookButton));
     });
-  });
-});
+
+    // Re-open table animation
+    $("#flightTable").animate({opacity: 1.0}, 250, null);
+}
+
+function HtmlTableCol(content)
+{
+  return "<td>" + content + "</td>";
+}
+
+function HtmlTableRow(content)
+{
+  return "<tr>" + content + "</tr>";
+}
+
+function GenerateBookButton(route_no)
+{
+  return "<a class='bookButton' href='#'>Book</a>";
+}
 
 </script>
 
