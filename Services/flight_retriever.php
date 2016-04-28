@@ -69,8 +69,8 @@
 	// Sanitize input
 	if(isset($_POST["from_city"]))	$from_city = $sqli->escape_string($_POST["from_city"]);
 	if(isset($_POST["to_city"]))	$to_city = $sqli->escape_string($_POST["to_city"]);
-	if(isset($_POST["min_price"])) 	$min_price = preg_replace("/[^0-9]/", "", $_POST["min_price"]);
-	if(isset($_POST["max_price"])) 	$max_price = preg_replace("/[^0-9]/", "", $_POST["max_price"]);
+	if(isset($_POST["min_price"])) 	$min_price = filter_var($_POST["min_price"], FILTER_VALIDATE_FLOAT);
+	if(isset($_POST["max_price"])) 	$max_price = filter_var($_POST["max_price"], FILTER_VALIDATE_FLOAT);
 
 	// Create the flight list
 	$flightList = new FlightList(

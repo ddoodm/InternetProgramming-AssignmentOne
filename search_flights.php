@@ -26,17 +26,19 @@
 	</form>
 </div>
 
-<table id="flightTable" cellspacing="0" cellpadding="0">
-  <thead>
-    <tr>
-      <th style="width: 30%">From</th>
-      <th style="width: 30%">To</th>
-      <th style="width: 20%">Price</th>
-      <th style="width: 20%">Book</th>
-    </tr>
-  </thead>
-  <tbody> </tbody>
-</table>
+<form id="flightListForm" action="book_flight.php" method="POST">
+  <table id="flightTable" style="display: none" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th style="width: 30%">From</th>
+        <th style="width: 30%">To</th>
+        <th style="width: 20%">Price</th>
+        <th style="width: 20%">Book</th>
+      </tr>
+    </thead>
+    <tbody> </tbody>
+  </table>
+</form>
 
 <script type="text/javascript">
 
@@ -52,8 +54,15 @@ $("#flightSearchForm").submit(function(event)
   // POST request with form data
   var request = $.post(url, $(this).serialize());
 
-  // Start table animation
-  $("#flightTable").animate({opacity: 0.0}, 250, function()
+  // If the table is hidden, just fade in
+  if(!$("#flightTable").is(":visible"))
+  {
+    request.done(PopulateTableWithAJAXResponse);
+    return;
+  }
+
+  // Otherwise, start table animation
+  $("#flightTable").fadeOut(250, function()
   {
     // On animation complete, make the query
     request.done(PopulateTableWithAJAXResponse);
@@ -72,7 +81,7 @@ function PopulateTableWithAJAXResponse(response)
     {
         var from_city = HtmlTableCol($(this).attr("from_city"));
         var to_city = HtmlTableCol($(this).attr("to_city"));
-        var price = HtmlTableCol($(this).attr("price"));
+        var price = HtmlTableCol("$" + $(this).attr("price"));
         var bookButton = HtmlTableCol(
           GenerateBookButton($(this).attr("route_no")));
 
@@ -81,7 +90,7 @@ function PopulateTableWithAJAXResponse(response)
     });
 
     // Re-open table animation
-    $("#flightTable").animate({opacity: 1.0}, 250, null);
+    $("#flightTable").fadeIn(250, null);
 }
 
 function HtmlTableCol(content)
@@ -96,7 +105,7 @@ function HtmlTableRow(content)
 
 function GenerateBookButton(route_no)
 {
-  return "<a class='bookButton' href='#'>Book</a>";
+  return "<button name='route_no' type='submit' value='"+route_no+"' class='bookButton'>Book</button>";
 }
 
 </script>
