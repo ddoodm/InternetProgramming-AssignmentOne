@@ -174,7 +174,7 @@ h1, h2
 	padding: 20px;
 }
 
-.lumpyButton, .bookButton
+.lumpyButton, .bookButton, .symbolButton
 {
 	height: 40px;
 	padding: 0 50px;
@@ -216,6 +216,27 @@ h1, h2
 .bookButton:hover
 {
 	color: #DDD;
+}
+
+.symbolButton
+{
+	padding: 0 15px;
+	background: #F0F0F0;
+	text-shadow: -1px -1px 0 #AAA, 1px 1px 0 #FFF;
+	color: #9C0;
+	font-weight: bold;
+	font-size: 25px;
+	margin: 10px;
+}
+
+.symbolButton:hover
+{
+	background: #E0E0E0;
+}
+
+.symbolButton:active
+{
+	background: #D0D0D0;
 }
 
 /* ===== Contact Form ===== */
@@ -299,7 +320,7 @@ form input, form textarea
 }
 
 /* ===== Table ===== */
-table
+.flightListTable, .seatTable
 {
 	margin: 0 auto;
 	width: 100%;
@@ -321,7 +342,36 @@ table th
 
 tbody>tr:nth-child(2n+1)
 {
+	background-color: #FAFAFA;
+}
+
+tbody>tr:hover
+{
 	background-color: #F8F8F8;
+}
+
+.detailTable
+{
+	width: 500px;
+	box-shadow: 0 0 20px #FFF;
+	margin: 0 auto 30px auto;
+}
+
+.detailTable tr
+{
+	background-color: #FEFEFE !important;
+}
+
+.detailTable tr>td:nth-child(1)
+{
+	background-color: #F8F8F8;
+	font-weight: bold;
+}
+
+.detailTable td
+{
+	text-align: left;
+	padding: 20px 25px;
 }
 
 /* ===== Footer ===== */

@@ -2,12 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="Style/main.css"/>
+    <link rel="stylesheet" type="text/css" href="Style/main.css?<?php echo rand(); ?>"/>
     <link rel="stylesheet" type="text/css" href="Style/mobile.css" media="only screen and (max-device-width: 480px)" />
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
 
     <!-- JQuery Library -->
     <script src="Scripts/jquery-1.12.3.min.js"></script>
+
+    <!-- sprintf (string format) function -->
+    <script src="Scripts/sprintf.min.js"></script>
 
     <title><?php echo($pageTitle); ?></title>
   </head>

@@ -6,6 +6,7 @@
 class Constants
 {
 	public static $SITE_TITLE = "Interprog Travel";
+	public static $LOCALE = 'en_US';
 }
 
 class DJsonHelper

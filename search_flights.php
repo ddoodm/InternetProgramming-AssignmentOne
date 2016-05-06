@@ -27,7 +27,7 @@
 </div>
 
 <form id="flightListForm" action="book_flight.php" method="POST">
-  <table id="flightTable" style="display: none" cellspacing="0" cellpadding="0">
+  <table id="flightTable" class="flightListTable" style="display: none" cellspacing="0" cellpadding="0">
     <thead>
       <tr>
         <th style="width: 30%">From</th>
