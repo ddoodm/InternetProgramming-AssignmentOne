@@ -27,7 +27,7 @@
   $route_no = intval($route_no);
 
   // Query database
-  $flight = new Flight($sqli, $route_no);
+  $flight = Flight::CreateFromRouteNo($sqli, $route_no);
 ?>
 
 <h2>Your Journey from <?php echo $flight->get_from_city(); ?> to <?php echo $flight->get_to_city(); ?></h2>
@@ -48,7 +48,10 @@
 </div>
 
 <h2>Seating Preferences</h2>
-<form>
+<form action="Services/register_booking.php" method="POST">
+  <input type="hidden" name="route_no" value="<?php echo $route_no; ?>">
+  <input id="seatCountField" type="hidden" name="seatCount">
+
   <table class="seatTable" id="seatTableBody">
     <thead>
       <tr>
@@ -82,9 +85,9 @@
 var SEAT_ROW_FORMAT =
   "<tr id='seatRow_%(id)i'>" +
   "  <td>#%(id)i</td>" +
-  "  <td><input type='checkbox' name='child_%(id)i' value='Child'></td>" +
-  "  <td><input type='checkbox' name='wheelchair_%(id)i' value='Wheelchair'></td>" +
-  "  <td><input type='checkbox' name='diet_%(id)i' value='Special Diet'></td>" +
+  "  <td><input type='checkbox' name='child_%(id)i'></td>" +
+  "  <td><input type='checkbox' name='wheelchair_%(id)i'></td>" +
+  "  <td><input type='checkbox' name='diet_%(id)i'></td>" +
   "</tr>";
 
 var seatRowCount = 0;
@@ -104,6 +107,7 @@ $.fn.extend(
 
 function addSeatRow_id(id)
 {
+  // Substitute ID into row format string
   var rowText = sprintf(SEAT_ROW_FORMAT, {id: id});
 
   $("#seatTableBody > tbody:last-child").append(rowText);
@@ -111,7 +115,7 @@ function addSeatRow_id(id)
 
 function addSeatRow()
 {
-  addSeatRow_id(++seatRowCount);
+  addSeatRow_id(seatRowCount++);
 }
 
 function removeSeatRow()
@@ -125,6 +129,7 @@ function removeSeatRow()
 
 $(document).ready(function()
 {
+  // Initialize with one seat row
   addSeatRow();
   updateControls();
 });
@@ -137,6 +142,9 @@ function updateControls()
   // Update seat count text
   $("#seatCountText").text(
     sprintf("%i seat%s selected", seatRowCount, seatRowCount==1? "" : "s"));
+
+  // Update seat count hidden field
+  $("#seatCountField").val(seatRowCount);
 }
 
 $("#addSeatButton").click(function(event)
