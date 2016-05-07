@@ -40,7 +40,7 @@ if(!isset($_SESSION[Bookings::$BOOKINGS_SESSION_KEY]))
 
 <ul class="buttonBar" style="margin-top: 30px;">
   <li style="float: left;">
-    <button class="neutralButton" onclick="location.href='Services/clear_bookings.php';">
+    <button class="negativeButton" onclick="location.href='Services/clear_bookings.php';">
       <img alt="Trash" src="Style/UI/trash.png" style="vertical-align: middle;" />
       Clear Bookings
     </button>

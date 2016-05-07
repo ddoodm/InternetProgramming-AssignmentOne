@@ -7,6 +7,7 @@ class Bookings implements Serializable
 {
 	public static $BOOKINGS_SESSION_KEY = "interprog.bookings";
 
+	private $id_counter = 0;
 	private $bookings;
 
 	public function __construct()
@@ -14,19 +15,40 @@ class Bookings implements Serializable
 		$this->bookings = array();
 	}
 
-	public function add($booking)
+	public function add($flight, $seatCount)
 	{
+		$booking = new Booking($this->id_counter++, $flight, $seatCount);
 		array_push($this->bookings, $booking);
+		return $booking;
+	}
+
+	public function remove($id)
+	{
+		// Linear search
+		foreach($this->bookings as $key => $booking)
+			if($booking->get_id() == $id)
+				unset($this->bookings[$key]);
+	}
+
+	public function isEmpty()
+	{
+		return sizeof($this->bookings) == 0;
 	}
 
     public function serialize()
     {
-        return serialize($this->bookings);
+        return serialize(array(
+        	"id_counter" => $this->id_counter,
+        	"bookings" => $this->bookings
+        	));
     }
 
     public function unserialize($data)
     {
-        $this->bookings = unserialize($data);
+    	$data = unserialize($data);
+
+    	$this->id_counter = $data["id_counter"];
+        $this->bookings = $data["bookings"];
     }
 
     public function get_totalPrice()
@@ -69,12 +91,14 @@ class Seat
 
 class Booking
 {
+	private $id;
 	public $flight;
 	public $seats;
 	private $seatCount;
 
-	public function __construct($flight, $seatCount)
+	public function __construct($id, $flight, $seatCount)
 	{
+		$this->id = $id;
 		$this->flight = $flight;
 		$this->seatCount = $seatCount;
 
@@ -82,6 +106,11 @@ class Booking
 		$this->seats = array();
 		for($i = 0; $i < $this->seatCount; $i++)
 			array_push($this->seats, new Seat(i+1));
+	}
+
+	public function get_id()
+	{
+		return $this->id;
 	}
 
 	public function get_seatCount()
@@ -127,12 +156,22 @@ class Booking
 		return $str;
 	}
 
+	private function makeDeleteButton()
+	{
+		return 
+			sprintf(
+				"(<a href='Services/delete_booking.php?id=%d'>remove</a>)",
+				$this->id);
+	}
+
 	public function __toString()
 	{
-		return sprintf("%s to %s with %d seats.<br /><b>Cost: %s | Total: %s</b>\n%s",
+		return sprintf("%s to %s with %d seat%s. %s<br /><b>Cost: %s | Total: %s</b>\n%s",
 			$this->flight->get_from_city(),
 			$this->flight->get_to_city(),
 			$this->seatCount,
+			$this->seatCount==1? "" : "s",
+			$this->makeDeleteButton(),
 			$this->flight->get_price_formatted(),
 			$this->get_totalPrice_formatted(),
 			$this->seatList());

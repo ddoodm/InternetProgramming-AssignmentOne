@@ -68,7 +68,10 @@
     <div style="position:relative; float:left; height: 60px;">
       <button class="symbolButton" id="addSeatButton">+</button>
       <button class="symbolButton" id="removeSeatButton" style="color:#F40;">&#8211;</button>
-      &nbsp;Add / Remove Seat (<i id="seatCountText"></i>)
+      &nbsp;<i id="seatCountText"></i>
+      <b style="font-size: 25px; vertical-align:middle; margin-left: 80px;">
+        Total Price: <i id="totalPriceText"></i>
+      </b>
     </div>
     <div style="position:relative; float:right; height: 60px;">
     <input
@@ -84,13 +87,15 @@
 
 var SEAT_ROW_FORMAT =
   "<tr id='seatRow_%(id)i'>" +
-  "  <td>#%(id)i</td>" +
+  "  <td>#%(idDisplay)i</td>" +
   "  <td><input type='checkbox' name='child_%(id)i'></td>" +
   "  <td><input type='checkbox' name='wheelchair_%(id)i'></td>" +
   "  <td><input type='checkbox' name='diet_%(id)i'></td>" +
   "</tr>";
 
 var seatRowCount = 0;
+
+var flightPrice = <?php echo $flight->get_price(); ?>;
 
 // Disable extension function
 $.fn.extend(
@@ -108,7 +113,7 @@ $.fn.extend(
 function addSeatRow_id(id)
 {
   // Substitute ID into row format string
-  var rowText = sprintf(SEAT_ROW_FORMAT, {id: id});
+  var rowText = sprintf(SEAT_ROW_FORMAT, {id: id, idDisplay: id+1});
 
   $("#seatTableBody > tbody:last-child").append(rowText);
 }
@@ -145,6 +150,8 @@ function updateControls()
 
   // Update seat count hidden field
   $("#seatCountField").val(seatRowCount);
+
+  $("#totalPriceText").text("$" + (flightPrice * seatRowCount).toFixed(2));
 }
 
 $("#addSeatButton").click(function(event)

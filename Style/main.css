@@ -103,6 +103,7 @@ body
 	background-image: url("UI/PlaneStencil.png");
 	background-position: top right;
 	background-repeat: no-repeat;
+	background-origin: content-box;
 
 	color: #777;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -174,7 +175,7 @@ h1, h2
 	padding: 20px;
 }
 
-.lumpyButton, .bookButton, .symbolButton, .neutralButton
+.lumpyButton, .bookButton, .symbolButton, .neutralButton, .negativeButton
 {
 	height: 40px;
 	padding: 0 50px;
@@ -218,7 +219,7 @@ h1, h2
 	color: #DDD;
 }
 
-.symbolButton, .neutralButton
+.symbolButton, .neutralButton, .negativeButton
 {
 	padding: 0 15px;
 	background: #F0F0F0;
@@ -238,10 +239,21 @@ h1, h2
 	background: #D0D0D0;
 }
 
-.neutralButton
+.neutralButton, .negativeButton
 {
 	font-weight: normal;
 	font-size: 16px;
+}
+
+.negativeButton
+{
+	color: #F00;
+	background: #FEE;
+}
+
+.negativeButton:hover
+{
+	background: #ECC;
 }
 
 /* ===== Contact Form ===== */
