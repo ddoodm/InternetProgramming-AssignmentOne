@@ -51,7 +51,7 @@ if(!isset($_SESSION[Bookings::$BOOKINGS_SESSION_KEY]))
     </button>
   </li>
   <li style="float: right;">
-    <button class="lumpyButton" onclick="location.href='#';">
+    <button class="lumpyButton" onclick="location.href='checkout.php';">
       Checkout >
     </button>
   </li>

@@ -439,6 +439,33 @@ tbody>tr:hover
 	color: #888;
 }
 
+/* ===== Checkout ===== */
+#checkoutContainer
+{
+	width: 70%;
+	padding: 60px;
+	margin: 10px auto 80px auto;
+
+	background-color: #F8F8F8;
+	border: 2px solid #FFF;
+	box-shadow: 0 0 10px #CCC;
+}
+
+#checkoutContainer tr
+{
+	background-color: inherit;
+}
+
+#checkoutContainer td
+{
+	padding: 5px;
+}
+
+#checkoutContainer input
+{
+	margin: 5px;
+}
+
 /* ===== Misc ===== */
 .hidden
 {

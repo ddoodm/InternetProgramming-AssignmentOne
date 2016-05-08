@@ -6,7 +6,7 @@
   require_once("Include/database_connect.php");
 
   // Page title
-  $pageTitle = Constants::$SITE_TITLE . " - Search Flights";
+  $pageTitle = Constants::$SITE_TITLE . " - Book a Flight";
 
   // Flight class
   require_once("Include/flight.php");

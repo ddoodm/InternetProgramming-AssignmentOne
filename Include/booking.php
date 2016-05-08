@@ -27,7 +27,8 @@ class Bookings implements Serializable
 		// Linear search
 		foreach($this->bookings as $key => $booking)
 			if($booking->get_id() == $id)
-				unset($this->bookings[$key]);
+				{ unset($this->bookings[$key]); return true; }
+		return false;
 	}
 
 	public function isEmpty()
