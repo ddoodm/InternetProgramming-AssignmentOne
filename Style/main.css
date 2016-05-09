@@ -453,17 +453,48 @@ tbody>tr:hover
 
 #checkoutContainer tr
 {
-	background-color: inherit;
+	background-color: #FAFAFA;
+}
+
+#checkoutContainer tr:hover
+{
+	background-color: #FAFAFA;
 }
 
 #checkoutContainer td
 {
+	text-align: left;
 	padding: 5px;
 }
 
 #checkoutContainer input
 {
-	margin: 5px;
+	width: 300px;
+	margin: 5px !important;
+}
+
+#checkoutContainer p
+{
+	margin: 0;
+	color: #AAA;
+}
+
+.imageRadio > input
+{ 
+	visibility: hidden;
+	position: absolute;
+}
+
+.imageRadio > input + img
+{
+	cursor: pointer;
+	box-shadow: none;
+	transition: box-shadow 0.5s;
+}
+
+.imageRadio > input:checked + img
+{
+	box-shadow: 0 0 5px #00AAEE;
 }
 
 /* ===== Misc ===== */
@@ -476,4 +507,9 @@ tbody>tr:hover
 {
 	background: #AAA !important;
 	cursor: default;
+}
+
+.requiredMarker
+{
+	color: red;
 }

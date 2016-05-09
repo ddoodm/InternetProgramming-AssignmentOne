@@ -8,6 +8,7 @@ class Constants
 	public static $SITE_TITLE 				= "Interprog Travel";
 	public static $LOCALE 					= "en_AU";
 	public static $PAGE_URL_MY_BOOKINGS		= "bookings.php";
+	public static $CHECKOUT_STAGE1_SESSION	= "interprog.checkout.stage1";
 }
 
 class DJsonHelper

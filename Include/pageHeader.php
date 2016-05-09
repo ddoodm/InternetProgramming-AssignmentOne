@@ -6,6 +6,9 @@
     <link rel="stylesheet" type="text/css" href="Style/mobile.css" media="only screen and (max-device-width: 480px)" />
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
 
+    <!-- Country Select JQuery Plugin stylesheet -->
+    <link rel="stylesheet" href="Style/countrySelect.min.css"/>
+
     <!-- JQuery Library -->
     <script src="Scripts/jquery-1.12.3.min.js"></script>
 

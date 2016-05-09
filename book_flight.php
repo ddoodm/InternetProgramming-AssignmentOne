@@ -42,7 +42,7 @@
     <td>To</td><td><?php echo $flight->get_to_city(); ?></td>
   </tr>
   <tr>
-    <td>Price</td><td><?php echo $flight->get_price_formatted(); ?></td>
+    <td>Price</td><td><?php echo $flight->get_price_formatted(); ?> per seat</td>
   </tr>
 </table>
 </div>
