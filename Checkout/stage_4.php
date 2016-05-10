@@ -72,7 +72,7 @@ $messageFormat =
 // Format the message
 $mailMessage = sprintf(
 	$messageFormat,
-	empty($suburb . $state)? "" : "$suburb $state",
+	"$suburb $state",
 	$bookings->printList(false),
 	$bookings->get_totalPrice_formatted());
 
