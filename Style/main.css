@@ -476,8 +476,9 @@ tbody>tr:hover
 
 #checkoutContainer p
 {
+	width: 80%;
 	margin: 0;
-	color: #AAA;
+	color: #888;
 }
 
 .imageRadio > input

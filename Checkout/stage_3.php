@@ -5,6 +5,10 @@ require_once("../Include/booking.php");
 require_once("../Include/flight.php");
 
 session_start();
+
+if(!isset($_SESSION[Bookings::$BOOKINGS_SESSION_KEY]))
+	die("<h3>Sorry! Your session has expired.</h3>");
+
 $stage1 = $_SESSION[Constants::$CHECKOUT_STAGE1_SESSION];
 
 $givenName 		= strip_tags($stage1["givenName"]);

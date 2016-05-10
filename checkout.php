@@ -41,6 +41,9 @@ function loadCheckoutStage(id)
 
 function postAndLoadPage(request)
 {
+  // Animate scroll-to-top
+  $("html, body").animate({ scrollTop: 0 }, "slow");
+
   var content = $("#checkoutContainerContent");
   content.fadeOut(400, function()
   {
