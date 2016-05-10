@@ -32,7 +32,7 @@ if(!isset($_SESSION[Bookings::$BOOKINGS_SESSION_KEY]))
 <div class="confirmDetailsBox">
   <?php
     $bookings = $_SESSION[Bookings::$BOOKINGS_SESSION_KEY];
-    echo $bookings;
+    echo $bookings->printList(true);
   ?>
 
   <h3>Total Price: <?php echo $bookings->get_totalPrice_formatted(); ?></h3>

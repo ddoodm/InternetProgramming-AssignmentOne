@@ -44,9 +44,10 @@ function postAndLoadPage(request)
   var content = $("#checkoutContainerContent");
   content.fadeOut(400, function()
   {
+    content.html("<h2>Loading...</h2>").show();
     request.done(function(response)
     {
-      content.html(response);
+      content.hide().html(response);
       content.fadeIn(400, null);
     });
   });

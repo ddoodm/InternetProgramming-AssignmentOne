@@ -296,7 +296,7 @@ form input, form textarea
 	margin: 0 0 10px 0;
 }
 
-.errorField
+.errorField, input:focus:invalid, textarea:focus:invalid 
 {
 	/* Override #contactForm input style */
 	border: 1px solid #F00 !important;
@@ -413,6 +413,7 @@ tbody>tr:hover
 	background-repeat: no-repeat;
 	background-size: 30%;
 	background-origin: content-box;
+	box-shadow: 0 0 10px #DDD;
 }
 
 /* ===== Footer ===== */

@@ -66,11 +66,11 @@ class Bookings implements Serializable
 		return money_format('$%i', $this->get_totalPrice());
     }
 
-	public function __toString()
+	public function printList($allowRemove)
 	{
 		$str = "<ul class='bookingsList'>";
 		foreach($this->bookings as $booking)
-			$str .= "<li>" . $booking . "</li>\n";
+			$str .= "<li>" . $booking->printListItem($allowRemove) . "</li>\n";
 		$str .= "</ul>";
 		return $str;
 	}
@@ -165,14 +165,14 @@ class Booking
 				$this->id);
 	}
 
-	public function __toString()
+	public function printListItem($allowRemove)
 	{
 		return sprintf("%s to %s with %d seat%s. %s<br /><b>Cost: %s | Total: %s</b>\n%s",
 			$this->flight->get_from_city(),
 			$this->flight->get_to_city(),
 			$this->seatCount,
 			$this->seatCount==1? "" : "s",
-			$this->makeDeleteButton(),
+			$allowRemove? $this->makeDeleteButton() : "",
 			$this->flight->get_price_formatted(),
 			$this->get_totalPrice_formatted(),
 			$this->seatList());

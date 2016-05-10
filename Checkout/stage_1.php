@@ -15,8 +15,8 @@
           <input type="text" id="addressLine1" name="addressLine1" placeholder="Address Line 1"> <b class='requiredMarker' id='addressLine1_required'></b> <br />
           <input type="text" id="addressLine2" name="addressLine2" placeholder="Address Line 2"> <b class='requiredMarker' id='addressLine2_required'></b> <br />
           <input type="text" id="suburb" name="suburb" placeholder="Suburb"> <b class='requiredMarker' id='suburb_required'></b> <br />
-          <input type="text" id="state" name="state" placeholder="State"> <b class='requiredMarker' id='state_required'></b> <br />
-          <input type="text" id="postcode" name="postcode" placeholder="Postcode"> <b class='requiredMarker' id='postcode_required'></b> <br />
+          <input type="text" id="state" name="state" pattern="^[aA-zZ]{2,3}$" title="Enter a 2-to-3-letter state" maxlength="3" placeholder="State (eg. NSW)"> <b class='requiredMarker' id='state_required'></b> <br />
+          <input type="text" id="postcode" name="postcode" pattern="\d{4,}" title="A postcode must be 4 digits" maxlength="4" placeholder="Postcode (eg. 2000)"> <b class='requiredMarker' id='postcode_required'></b> <br />
 
           <!-- Open Source 'JQuery Country Select' plugin - mrmarkfrench/country-select-js -->
           <input type="text" name="country" id="country">
@@ -30,13 +30,14 @@
           </script>
           <p>Note to markers: this is an open-source country selector,
             available at GitHub <a href="https://github.com/mrmarkfrench/country-select-js">here</a>.</p>
+          <p><i>( 'State' and 'Postcode' are optional for bookings made outside Australia )</i></p>
 
         </td>
       </tr>
       <tr>
         <td>Contact Details</td>
         <td>
-          <input type="text" id="email" name="email" placeholder="E-Mail"> <b class='requiredMarker' id='email_required'></b> <br />
+          <input type="email" id="email" name="email" placeholder="E-Mail"> <b class='requiredMarker' id='email_required'></b> <br />
           <input type="text" id="mobilePhone" name="mobilePhone" placeholder="Mobile Phone"> <b class='requiredMarker' id='mobilePhone_required'></b> <br />
           <input type="text" id="businessPhone" name="businessPhone" placeholder="Business Phone"> <b class='requiredMarker' id='businessPhone_required'></b> <br />
           <input type="text" id="workPhone" name="workPhone" placeholder="Work Phone"> <b class='requiredMarker' id='workPhone_required'></b>

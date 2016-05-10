@@ -30,6 +30,7 @@
         <li><a href="index.php">Home</a></li>
         <li><a href="search_flights.php">Find Flights</a></li>
         <li><a href="bookings.php">Your Bookings</a></li>
+        <li><a href="about.php">About</a></li>
         <li><a href="contact.php">Contact</a></li>
       </ul>
     </div>
