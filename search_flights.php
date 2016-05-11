@@ -119,14 +119,14 @@ function PopulateTableWithAJAXResponse(response)
 function showEmptyResult()
 {
   $("#errorMessage")
-    .html("<p>Please specify either the destination or origin of your flight, or both.</p>")
+    .html("<p>We could not find any flights matching your search.</p>")
     .fadeIn(250, null);
 }
 
 function showNullParameterMessage()
 {
   $("#errorMessage")
-    .html("<p>We could not find any flights matching your search.</p>")
+    .html("<p>Please specify either the destination or origin of your flight, or both.</p>")
     .fadeIn(250, null);
 }
 
