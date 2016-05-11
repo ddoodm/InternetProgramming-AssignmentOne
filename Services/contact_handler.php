@@ -119,7 +119,7 @@ $messageFormat =
 "
 <html>
 	<body>
-		<h1>IT Contact Form Message from %s</h1>
+		<h1>Interprog Travel Contact Form Message from %s</h1>
 		<p>E-Mail: <a href='mailto:%s'>%s</a></p>
 		<p>%s</p>
 	</body>
@@ -131,7 +131,7 @@ $mailMessage = sprintf(
 	$messageFormat,
 	$name===""? "an Anonymous Mailer" : $name, $email, $email, $message);
 
-// Deliver the E-Mail
+// Deliver the E-Mail to the webmaster
 $deliverySuccess = mail(RECEIVER_ADDRESS, $subject, $mailMessage, $mailHeaders);
 
 // If the message was not delivered, tell the user
@@ -143,6 +143,9 @@ if(!$deliverySuccess)
 
 	exitWithResponse($response);
 }
+
+// Finally, deliver to the client
+mail($email, $subject, $mailMessage, $mailHeaders);
 
 // Otherwise, exit with a success flag
 $response["success"] = true;

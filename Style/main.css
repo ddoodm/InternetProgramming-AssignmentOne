@@ -35,6 +35,8 @@ body
 
 	background-image: url("UI/Navbar.png");
 	background-repeat: repeat-x;
+
+	overflow: hidden;
 }
 
 #navBar ul
@@ -254,6 +256,17 @@ h1, h2
 .negativeButton:hover
 {
 	background: #ECC;
+}
+
+/* ===== Flight Search ===== */
+#flightSearchForm tr
+{
+	background: transparent;
+}
+
+#flightSearchForm td
+{
+	padding: 0;
 }
 
 /* ===== Contact Form ===== */

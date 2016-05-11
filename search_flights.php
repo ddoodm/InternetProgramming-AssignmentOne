@@ -16,13 +16,22 @@
 
 <div class="fullWidthContainer">
 	<form id="flightSearchForm" action="Services/flight_retriever.php" method="POST">
-		<b>City</b> <input type="text" name="from_city" placeholder="Anywhere"> to
-		<input type="text" name="to_city" placeholder="Anywhere"> <br />
+    <table>
+      <tr>
+    		<td><b>City</b></td>
+        <td><input type="text" id="from_city" name="from_city" placeholder="Anywhere"></td>
+        <td>to</td>
+    		<td><input type="text" id="to_city" name="to_city" placeholder="Anywhere"></td>
+      </tr>
 
-		<b>Price</b> <input type="text" name="min_price" placeholder="$0.00"> to
-		<input type="text" name="max_price" placeholder="$10,000.00+"> <br />
-
-		<input type="submit" value="Search">
+      <tr>
+    		<td><b>Price</b></td>
+        <td><input type="text" name="min_price" placeholder="$0.00"></td>
+        <td>to</td>
+    		<td><input type="text" name="max_price" placeholder="$10,000.00+"></td>
+      </tr>
+    </table>
+    <input type="submit" value="Search...">
 	</form>
 </div>
 
@@ -40,6 +49,10 @@
   </table>
 </form>
 
+<div id="errorMessage" class="infoBox" style="display:none;">
+  <p></p>
+</div>
+
 <script type="text/javascript">
 
 /* AJAX handler for "flight search" button */
@@ -47,6 +60,13 @@ $("#flightSearchForm").submit(function(event)
 {
   // Do not proceed with normal form submission
   event.preventDefault();
+
+  // Check that at least one parameter is supplied
+  if(("" + $("#from_city").val() + $("#to_city").val()) == "")
+    { showNullParameterMessage(); return; }
+
+  // Clear message
+  $("#errorMessage").fadeOut(250, null);
 
   // Location of the contact handler
   var url = $(this).attr('action');
@@ -77,6 +97,9 @@ function PopulateTableWithAJAXResponse(response)
     var xmlDoc = $(response).find('flights');
     var flightRows = xmlDoc.find('flight');
 
+    if(flightRows.length < 1)
+      { showEmptyResult(); return; }
+
     $(flightRows).each(function()
     {
         var from_city = HtmlTableCol($(this).attr("from_city"));
@@ -91,6 +114,20 @@ function PopulateTableWithAJAXResponse(response)
 
     // Re-open table animation
     $("#flightTable").fadeIn(250, null);
+}
+
+function showEmptyResult()
+{
+  $("#errorMessage")
+    .html("<p>Please specify either the destination or origin of your flight, or both.</p>")
+    .fadeIn(250, null);
+}
+
+function showNullParameterMessage()
+{
+  $("#errorMessage")
+    .html("<p>We could not find any flights matching your search.</p>")
+    .fadeIn(250, null);
 }
 
 function HtmlTableCol(content)
