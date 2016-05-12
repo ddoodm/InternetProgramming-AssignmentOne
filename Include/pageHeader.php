@@ -11,6 +11,10 @@
 
     <!-- JQuery Library -->
     <script src="Scripts/jquery-1.12.3.min.js"></script>
+    
+    <!-- JQuery UI Library -->
+    <link href="Scripts/jquery-ui/jquery-ui.css" rel="stylesheet" />
+    <script src="Scripts/jquery-ui/jquery-ui.min.js"></script>
 
     <!-- sprintf (string format) function -->
     <script src="Scripts/sprintf.min.js"></script>

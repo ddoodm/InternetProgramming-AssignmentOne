@@ -528,3 +528,10 @@ tbody>tr:hover
 {
 	color: red;
 }
+
+.ui-autocomplete
+{
+	background: #FFF !important;
+	font-size: 12px !important;
+	box-shadow: 0 0 15px #EEE;
+}

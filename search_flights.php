@@ -19,9 +19,9 @@
     <table>
       <tr>
     		<td><b>City</b></td>
-        <td><input type="text" id="from_city" name="from_city" placeholder="Anywhere"></td>
+        <td><input type="text" class="city_input" id="from_city" name="from_city" placeholder="Anywhere"></td>
         <td>to</td>
-    		<td><input type="text" id="to_city" name="to_city" placeholder="Anywhere"></td>
+    		<td><input type="text" class="city_input" id="to_city" name="to_city" placeholder="Anywhere"></td>
       </tr>
 
       <tr>
@@ -54,6 +54,14 @@
 </div>
 
 <script type="text/javascript">
+
+$(document).ready(function()
+{
+  // Configure autocomplete using the JSON service
+  $(".city_input").autocomplete({
+    source: "Services/city_listing.php"
+  });
+});
 
 /* AJAX handler for "flight search" button */
 $("#flightSearchForm").submit(function(event)
