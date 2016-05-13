@@ -26,9 +26,9 @@
 
       <tr>
     		<td><b>Price</b></td>
-        <td><input type="text" name="min_price" placeholder="$0.00"></td>
+        <td><input type="text" name="min_price" pattern="^\d+((\.|\,)\d{1,2})?$" placeholder="$0.00"></td>
         <td>to</td>
-    		<td><input type="text" name="max_price" placeholder="$10,000.00+"></td>
+    		<td><input type="text" name="max_price" pattern="^\d+((\.|\,)\d{1,2})?$" placeholder="$10,000.00+"></td>
       </tr>
     </table>
     <input type="submit" value="Search...">
